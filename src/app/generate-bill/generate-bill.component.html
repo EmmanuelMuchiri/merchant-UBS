@@ -1,13 +1,11 @@
 <div class="example-container">
-    <!-- <div>
-        <mat-form-field>
-            <mat-select placeholder="Select">
-                <mat-option value="option">Option</mat-option>
-            </mat-select>
-        </mat-form-field>
-    </div> -->
-
+    <mat-form-field>
+        <mat-select placeholder="Select">
+          <mat-option value="option"*ngFor="let revStream"> {{revStream.name}} </mat-option>
+        </mat-select>
+      </mat-form-field>
     <div>
+
         <mat-form-field>
             <input matInput [(ngModel)]="newBill.Revstreams" placeholder="Revenue Stream:">
         </mat-form-field>
@@ -31,7 +29,7 @@
     </div>
 
     <div>
-        <mat-form-field>
+        <mat-form-field>    
             <input matInput [(ngModel)]="newBill.narration" placeholder="Narration:">
         </mat-form-field>
     </div>

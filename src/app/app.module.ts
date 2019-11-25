@@ -25,8 +25,9 @@ import { LoginComponent } from './login';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule, MatSelectModule} from '@angular/material';
 import  {MatDatepickerModule } from '@angular/material/datepicker';
-import { MatTableModule } from "@angular/material";
+import { MatTableModule, MatPaginatorModule } from "@angular/material";
 import { MatNativeDateModule } from '@angular/material/core';
+import { RevenueStreamsComponent } from './revenue-streams/revenue-streams.component';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     BillDetailsComponent,
     LoginComponent,
     MainNavComponent,
+    RevenueStreamsComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,7 +62,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatDatepickerModule,
     MatTableModule,
     MatDatepickerModule, 
-MatNativeDateModule
+MatNativeDateModule,
+MatPaginatorModule
   ],
   providers: [
     ApiService,

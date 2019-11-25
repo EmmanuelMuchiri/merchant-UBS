@@ -1,29 +1,25 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Observable } from 'rxjs';
-// import { DataSource } from '@angular/cdk/collections';
 import { ApiService } from '../api.service';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material';
 
-
 @Component({
-  selector: 'app-bill-details',
-  templateUrl: './bill-details.component.html',
-  styleUrls: ['./bill-details.component.css']
+  selector: 'app-revenue-streams',
+  templateUrl: './revenue-streams.component.html',
+  styleUrls: ['./revenue-streams.component.css']
 })
-export class BillDetailsComponent implements OnInit {
+export class RevenueStreamsComponent implements OnInit {
 
   dataSource = new MatTableDataSource();
-  displayedColumns = ['bill_id','Revstreams','customer_name','customer_phone','narration','subtotal','quantity','status',  'generated_by'];
+  displayedColumns = ['id','name','revenue_description','Merchant_Owner','price','Industrys'];
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
   constructor( private apiservice: ApiService) { }
 
   ngOnInit():void{ 
-
-    this.apiservice.getBills().subscribe(
+    this.apiservice.getRevenueStreams().subscribe(
       data => {
         this.dataSource.data = data;
       }
@@ -39,4 +35,4 @@ export class BillDetailsComponent implements OnInit {
       }
     }
     
-  }
+  }  

@@ -21,3 +21,12 @@ export interface Bills {
     status: string;
     bill_id: string;
 }
+
+export interface RevenueStreams {
+    id: number;
+    name: string;
+    revenue_description: string;
+    Merchant_Owner: number;
+    price: number;
+    Industrys: string;
+}

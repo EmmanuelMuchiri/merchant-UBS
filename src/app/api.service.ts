@@ -15,6 +15,10 @@ export class ApiService {
 
   billUrl: string ='https://jambopay.herokuapp.com/api/GetMerchantBills/';
 
+  RevSreamUrl: string = 'http://jambopay.herokuapp.com/api/GetMerchantRevenueStreams/';
+
+  RevenueStreamsUrl: string = 'https://jambopay.herokuapp.com/api/GetMerchantRevenueStreams/';
+
   constructor(public http:HttpClient) { }
 
   // Http Options
@@ -40,6 +44,21 @@ export class ApiService {
     )
   }
 
+  getRevStream(): Observable<any[]>{
+    return this.http.get<any[]>(this.RevSreamUrl)
+    .pipe(
+      retry(1),
+      catchError(this.handleError)
+    )
+  }
+
+  getRevenueStreams(): Observable<any[]>{
+    return this.http.get<any[]>(this.RevenueStreamsUrl)
+    .pipe(
+      retry(1),
+      catchError(this.handleError)
+    )
+  }
 
   handleError(error) {
     let errorMessage = '';

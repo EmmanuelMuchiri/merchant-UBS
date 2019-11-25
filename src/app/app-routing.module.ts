@@ -7,6 +7,7 @@ import { CreateUserComponent } from './create-user/create-user.component';
 import { BillDetailsComponent } from './bill-details/bill-details.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './_helpers';
+import { RevenueStreamsComponent } from './revenue-streams/revenue-streams.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
 
   { path: 'create-user', component: CreateUserComponent, canActivate: [AuthGuard] },
   { path: 'bill-details', component: BillDetailsComponent, canActivate: [AuthGuard] },
+  { path: 'revenue-streams', component: RevenueStreamsComponent, canActivate: [AuthGuard] },
 
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 
