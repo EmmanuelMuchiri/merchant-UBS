@@ -24,8 +24,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule, MatSelectModule} from '@angular/material';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-
+import  {MatDatepickerModule } from '@angular/material/datepicker';
+import { MatTableModule } from "@angular/material";
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 @NgModule({
@@ -56,13 +57,16 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatDatepickerModule
-
+    MatDatepickerModule,
+    MatTableModule,
+    MatDatepickerModule, 
+MatNativeDateModule
   ],
   providers: [
     ApiService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    [MatNativeDateModule, MatDatepickerModule],
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

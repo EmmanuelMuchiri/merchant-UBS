@@ -2,23 +2,18 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable,  throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
-import { Bill } from './postdataObj';
+import { Bill,Bills  } from './postdataObj';
 
 
 @Injectable({
   providedIn: 'root'
 })
 
-
 export class ApiService {
-  
-
-  
-  // ('Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTczODI4NDY3LCJqdGkiOiJhMTU0YTY4NGM1ZjY0NGI5YWFiMTZkYzViYTVkNDI0NiIsInVzZXJfaWQiOjF9.yd8cOZ0BZ6u01hCDBq0uOae-rJqESOF8dGa_a8bytRk');
-
 
   generateBillUrl: string = 'http://jambopay.herokuapp.com/api/GenerateBill/';
 
+  billUrl: string ='https://jambopay.herokuapp.com/api/GetMerchantBills/';
 
   constructor(public http:HttpClient) { }
 
@@ -29,9 +24,16 @@ export class ApiService {
     })
   } 
 
-
   generateBill(bill): Observable<Bill> {
     return this.http.post<Bill>(this.generateBillUrl, JSON.stringify(bill), this.httpOptions)
+    .pipe(
+      retry(1),
+      catchError(this.handleError)
+    )
+  }
+
+  getBills(): Observable<Bills[]>{
+    return this.http.get<Bills[]>(this.billUrl)
     .pipe(
       retry(1),
       catchError(this.handleError)
