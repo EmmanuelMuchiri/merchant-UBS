@@ -1,15 +1,15 @@
 <div class="example-container">
-    <mat-form-field>
-        <mat-select placeholder="Select">
-          <mat-option value="option"*ngFor="let revStream"> {{revStream.name}} </mat-option>
+ <mat-form-field>
+        <mat-select placeholder="Revenue Stream"  [(ngModel)]="newBill.Revstreams">
+          <mat-option value="option"*ngFor="let dl of listItems" [value]="dl.id" > {{dl.name}} </mat-option>
         </mat-select>
-      </mat-form-field>
-    <div>
+      </mat-form-field> 
 
+    <!-- <div>
         <mat-form-field>
             <input matInput [(ngModel)]="newBill.Revstreams" placeholder="Revenue Stream:">
         </mat-form-field>
-    </div>
+    </div>  -->
     <div>
         <mat-form-field>
             <input matInput [(ngModel)]="newBill.customer_name" placeholder="Name:">
@@ -53,8 +53,6 @@
     <div>
         <div class="form-group">
             <button mat-raised-button color="primary" (click)="addBill()">Create Bill</button>
-
-            <!-- <button class="btn btn-primary btn-lg" (click)="addBill()">Create Bill</button> -->
         </div>
     </div>
 
