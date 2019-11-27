@@ -18,7 +18,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { ApiService } from './api.service';
 import { UploadBillComponent } from './upload-bill/upload-bill.component';
-import { CreateUserComponent } from './create-user/create-user.component';
 import { BillDetailsComponent } from './bill-details/bill-details.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login';
@@ -28,6 +27,8 @@ import  {MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTableModule, MatPaginatorModule } from "@angular/material";
 import { MatNativeDateModule } from '@angular/material/core';
 import { RevenueStreamsComponent } from './revenue-streams/revenue-streams.component';
+import { RegisterComponent } from './register/register.component';
+import { AlertComponent } from './alert/alert.component';
 
 
 @NgModule({
@@ -36,11 +37,12 @@ import { RevenueStreamsComponent } from './revenue-streams/revenue-streams.compo
     GenerateBillComponent,
     HomeComponent,
     UploadBillComponent,
-    CreateUserComponent,
     BillDetailsComponent,
     LoginComponent,
     MainNavComponent,
     RevenueStreamsComponent,
+    RegisterComponent,
+    AlertComponent,
   ],
   imports: [
     BrowserModule,
